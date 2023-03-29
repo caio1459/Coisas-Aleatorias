@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UniALFA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1><span th:text="${bemVindo}"></span></h1>
+    <div th:each="comentario : ${comentarios}" class="border border-primary p-2 mb-2">
+        <form>
+            <div class="md-3">
+                <h3><span>Titulo: </span><span th:text="${comentario.titulo}"></span></h3>
+            </div>
+            <div class="md-3">
+                <h3><span>Comentário: </span><span th:text="${comentario.texto}"></span></h3>
+            </div>
+            <div class="md-3">
+                <h3><span>Autor: </span><span th:text="${comentario.autor}"></span></h3>
+            </div>
+            <div class="md-3">
+                <h3><span>Palavra-Chave: </span><span th:text="${comentario.palavra_chave}"></span></h3>
+            </div>
+            <div class="md-3">
+                <p><span>Data da publicação: </span><span th:text="${#temporals.format(comentario.publicacao, 'dd/MM/yyy HH:mm')}"></span></p>
+            </div>
+        </form>
+    </div>
+    <a th:href="@{/}" class="btn btn-outline-danger" role="button">Novo</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+</html>
