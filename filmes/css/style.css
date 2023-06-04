@@ -7,6 +7,16 @@ header{
     padding: 10px;
     background-color: rgb(107, 22, 185);
     color: white;
+    display: flex;
+    flex-direction: row;
+}
+header h1{
+    display: flex;
+    margin-top: 10px;
+}
+header img{
+    width: 50px;
+    display: inline;
 }
 form{
     margin: 10px;
@@ -34,6 +44,7 @@ form button:hover{
     cursor: pointer;
 }
 .lista{
+    width: 100%;
     display: inline-grid;
     grid-template-columns: 25% 25% 25% 25%;
     margin-top: 10px;

@@ -5,7 +5,12 @@ txtPesquisa.onsubmit = (ev) => {
   const pesquisa = ev.target.pesquisa.value;
 
   if (pesquisa == "") {
-    window.alert("Por favor digite o algo!");
+    Swal.fire({
+      title: "Warning!",
+      text: "Por favor digite algo!",
+      icon: "warning",
+      confirmButtonText: "OK",
+    });
     return;
   }
   fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&&s=${pesquisa}`)
@@ -17,7 +22,12 @@ txtPesquisa.onsubmit = (ev) => {
     lista.innerHTML = ""; //Aqui limpa todo o conteudo que está dentro da minha div principal
     if (json.Response == "False") {
       //verificação se o filme não existir
-      window.alert("Nenhum resultado encontrado!");
+      Swal.fire({
+        title: "ERRO!",
+        text: "O conteudo não foi encontrado!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
       return;
     }
     json.Search.forEach((element) => {
